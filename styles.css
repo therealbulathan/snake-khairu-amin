@@ -1,0 +1,32 @@
+/* Minimal mobile UI */
+:root{
+  --bg:#0f0f10;
+  --fg:#e6e1d5;
+  --muted:#a5a099;
+  --accent:#7fdba7;
+  --danger:#e45c5c;
+  --grid:#1a1b1c;
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--fg);font:16px/1.4 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Inter,system-ui,Arial}
+header,footer{position:fixed;left:0;right:0;display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;z-index:10;background:linear-gradient(180deg,rgba(15,16,17,.9),rgba(15,16,17,.6));backdrop-filter:saturate(120%) blur(6px)}
+header{top:0;padding-top:calc(.75rem + var(--safe-top))}
+footer{bottom:0;padding-bottom:calc(.75rem + var(--safe-bottom));justify-content:space-between}
+.brand{font-weight:600;letter-spacing:.2px}
+.spacer{flex:1}
+.stats{display:flex;gap:1rem;color:var(--muted)}
+main{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;padding:3.5rem 0}
+canvas{display:block;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.35);background:#121315;touch-action:none}
+button{background:#1b1c1e;color:var(--fg);border:1px solid #2a2b2e;border-radius:14px;padding:.7rem 1rem;font-weight:600;letter-spacing:.2px}
+button.primary{background:var(--accent);color:#0b0c0c;border-color:transparent}
+button.danger{background:#2a1717;color:#ffd5d5;border-color:#442424}
+button.ghost{background:transparent;border-color:#2a2b2e;color:var(--muted)}
+button[aria-pressed="true"]{outline:2px solid var(--accent)}
+.overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;opacity:0;transition:opacity .2s}
+.overlay.show{opacity:1;pointer-events:auto}
+.card{background:#141517;border:1px solid #242529;border-radius:20px;padding:1.25rem;max-width:420px;width:90%;text-align:center;box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.card h1{margin:.25rem 0 0 0}
+.row{display:flex;gap:.5rem;justify-content:center;margin-top:.75rem;flex-wrap:wrap}
+@media (min-width:768px){html{font-size:18px}}

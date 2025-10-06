@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Snake — Khairu & Amin</title>
+  <meta name="theme-color" content="#111111">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="preload" href="styles.css" as="style">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="brand">Snake — Khairu & Amin</div>
+    <div class="spacer"></div>
+    <div class="stats">
+      <span>🍎 <b id="score">0</b></span>
+      <span>🏆 <b id="best">0</b></span>
+    </div>
+  </header>
+
+  <main>
+    <canvas id="game" aria-label="Snake game canvas" role="img"></canvas>
+    <div id="overlay" class="overlay show">
+      <div class="card">
+        <h1>Snake</h1>
+        <p>Свайпы для управления. Не разворачивайся на 180°.</p>
+        <div class="row">
+          <button id="startBtn" class="primary">Начать</button>
+          <button id="wrapBtn" class="ghost" aria-pressed="false" title="Включить/выключить проход через стены">Без стен: выкл</button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <button id="pauseBtn" aria-pressed="false">Пауза</button>
+    <button id="restartBtn" class="danger">Заново</button>
+    <button id="soundBtn" class="ghost" aria-pressed="false">Звук</button>
+  </footer>
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(()=>{});
+      });
+    }
+  </script>
+  <script defer src="app.js"></script>
+</body>
+</html>
