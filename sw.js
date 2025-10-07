@@ -1,5 +1,5 @@
 // Offline cache for Snake — Khairu & Amin
-const CACHE = 'snake-ka-v1';
+const CACHE = 'snake-ka-v2';
 const ASSETS = [
   './',
   './index.html',

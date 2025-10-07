@@ -65,7 +65,7 @@
     scoreEl.textContent = '0';
     const mid = Math.floor(STATE.grid/2);
     STATE.snake = [{x:mid-2,y:mid},{x:mid-1,y:mid},{x:mid,y:mid}];
-    placeApple();
+    STATE.apple = { x: Math.floor(STATE.grid/2) + 4, y: Math.floor(STATE.grid/2) };
     draw();
   }
   function placeApple() {
@@ -184,10 +184,12 @@
     }
     ctx.stroke();
 
+    // apple — red square (classic Nokia style)
     const ax = STATE.apple.x*STATE.cell, ay = STATE.apple.y*STATE.cell;
-    const r = Math.floor(STATE.cell*0.42);
-    ctx.fillStyle = '#7fdba7';
-    ctx.beginPath(); ctx.arc(ax + STATE.cell/2, ay + STATE.cell/2, r, 0, Math.PI*2); ctx.fill();
+    const pad = Math.floor(STATE.cell*0.18);
+    const size = STATE.cell - pad*2;
+    ctx.fillStyle = '#ff5252';
+    ctx.fillRect(ax + pad, ay + pad, size, size);
 
     ctx.fillStyle = '#e6e1d5';
     for (let i=0;i<STATE.snake.length;i++){
